@@ -4,6 +4,8 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.nativeksp)
+    alias(libs.plugins.kmpNativeCoroutine)
 }
 
 kotlin {
@@ -33,6 +35,7 @@ kotlin {
 
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
+            //implementation()
         }
 
         iosMain.dependencies {

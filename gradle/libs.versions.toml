@@ -14,6 +14,9 @@ compose-plugin = "1.6.10"
 junit = "4.13.2"
 kotlin = "2.0.0"
 ktor = "2.3.11"
+coil = "2.6.0"
+kmpNativeCo = "1.0.0-ALPHA-31"
+nativeKSP = "2.0.0-1.0.21"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -32,6 +35,9 @@ ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 
+#Image loading
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -39,3 +45,5 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+nativeksp = { id = "com.google.devtools.ksp", version.ref = "nativeKSP" }
+kmpNativeCoroutine  = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "kmpNativeCo" }
