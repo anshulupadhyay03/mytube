@@ -34,6 +34,10 @@ kotlin {
         commonMain.dependencies {
 
             implementation(libs.ktor.client.core)
+            implementation(libs.kotlinx.coroutines)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.client.serialization.json)
+            implementation(libs.ktor.client.logging)
         }
 
         androidMain.dependencies {
