@@ -41,6 +41,9 @@ kotlin {
         }
 
         androidMain.dependencies {
+            implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.1")
+            implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.1")
+            implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.1")
             implementation(libs.ktor.client.okhttp)
             //implementation()
         }
