@@ -21,6 +21,8 @@ coroutines = "1.7.3"
 serialization = "2.0.0"
 kotlinxDateTime = "0.4.0"
 ktcoroutinescore = "1.7.3"
+googleauth = "1.2.2"
+google-googleid = "1.1.0"
 
 
 [libraries]
@@ -51,6 +53,11 @@ ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "k
 
 #Image loading
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+
+#Google single sign on
+androidx-credential = { module = "androidx.credentials:credentials", version.ref = "googleauth" }
+androidx-credentials-play-services = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "googleauth" }
+androidx-indentity-googleid = { module = "com.google.android.libraries.identity.googleid:googleid", version.ref = "google-googleid" }
 
 
 [plugins]

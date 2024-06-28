@@ -6,6 +6,8 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.nativeksp)
     alias(libs.plugins.kmpNativeCoroutine)
+    alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.compose.compiler)
 }
 
 kotlin {
@@ -32,7 +34,8 @@ kotlin {
             languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
         }
         commonMain.dependencies {
-
+            implementation(compose.runtime)
+            implementation(compose.material3)
             implementation(libs.ktor.client.core)
             implementation(libs.kotlinx.coroutines)
             implementation(libs.ktor.client.content.negotiation)
@@ -65,3 +68,4 @@ android {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
 }
+
