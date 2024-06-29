@@ -3,6 +3,7 @@ package com.retroentertainment.mytubeverse.login
 import android.content.Context
 import android.credentials.GetCredentialException
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.credentials.Credential
 import androidx.credentials.CredentialManager
@@ -22,7 +23,7 @@ internal class GoogleAuthUiProviderImpl(
 ) :
     GoogleAuthUiProvider {
     @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
-    override suspend fun signIn(): GoogleUser? {
+    override suspend fun  signIn(): GoogleUser? {
         return try {
             val credential = credentialManager.getCredential(
                 context = activityContext,
@@ -30,7 +31,7 @@ internal class GoogleAuthUiProviderImpl(
             ).credential
             getGoogleUserFromCredential(credential)
         } catch (e: GetCredentialException) {
-            //AppLogger.e("GoogleAuthUiProvider error: ${e.message}")
+            Log.e("Ansh", "GoogleAuthUiProvider error: ${e.message}")
             null
         } catch (e: NullPointerException) {
             null
@@ -49,7 +50,7 @@ internal class GoogleAuthUiProviderImpl(
                         profilePicUrl = googleIdTokenCredential.profilePictureUri?.toString()
                     )
                 } catch (e: GoogleIdTokenParsingException) {
-                    //Log.e("GoogleAuthUiProvider Received an invalid google id token response: ${e.message}")
+                    Log.e("Ansh","GoogleAuthUiProvider Received an invalid google id token response: ${e.message}")
                     null
                 }
             }

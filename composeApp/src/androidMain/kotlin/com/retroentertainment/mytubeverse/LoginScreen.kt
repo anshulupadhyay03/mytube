@@ -26,7 +26,7 @@ import mytubeverse.composeapp.generated.resources.compose_multiplatform
 fun LoginScreen(viewModel: LoginViewModel) {
 
     val credentials =
-        GoogleAuthCredentials("1093375705839-6pbc5ei50d4vl3sta27vgidfj6qq5p85.apps.googleusercontent.com")
+        GoogleAuthCredentials("1093375705839-na8i48n2katiemscig24e37et9c82h5k.apps.googleusercontent.com")
     val credentialManager = CredentialManager.create(LocalContext.current)
     val googleAuthProvider =
         GoogleAuthProviderImpl(credentials, credentialManager)
