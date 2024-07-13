@@ -22,6 +22,7 @@ import domain.login.LoginViewModel
 import mytubeverse.composeapp.generated.resources.Res
 import mytubeverse.composeapp.generated.resources.compose_multiplatform
 
+
 @Composable
 fun LoginScreen(viewModel: LoginViewModel) {
 
@@ -53,9 +54,12 @@ fun LoginScreen(viewModel: LoginViewModel) {
         }
 
     }
+
 }
+
 
 fun handleSuccessLogin(googleUser: GoogleUser?) {
     val displayName = googleUser?.displayName
     Log.i("Ansh", " user is $displayName and the token is ${googleUser?.idToken}")
+   // viewModel.saveUserToken(googleUser?.idToken)
 }
