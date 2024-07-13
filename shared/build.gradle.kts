@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.kmpNativeCoroutine)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    kotlin("native.cocoapods")
 }
 
 kotlin {
@@ -28,7 +29,20 @@ kotlin {
             isStatic = true
         }
     }
-    
+
+    cocoapods {
+        summary = "Some description for the Shared Module"
+        homepage = "Link to the Shared Module homepage"
+        version = "1.0"
+        ios.deploymentTarget = "14.1"
+        podfile = project.file("../iosApp/Podfile")
+        framework {
+            baseName = "shared"
+            isStatic=true
+            transitiveExport = true
+        }
+    }
+
     sourceSets {
         all {
             languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")

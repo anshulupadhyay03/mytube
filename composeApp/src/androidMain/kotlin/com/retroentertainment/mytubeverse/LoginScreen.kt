@@ -57,5 +57,5 @@ fun LoginScreen(viewModel: LoginViewModel) {
 
 fun handleSuccessLogin(googleUser: GoogleUser?) {
     val displayName = googleUser?.displayName
-    Log.i("Ansh", " user is $displayName")
+    Log.i("Ansh", " user is $displayName and the token is ${googleUser?.idToken}")
 }
