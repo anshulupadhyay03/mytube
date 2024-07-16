@@ -24,7 +24,7 @@ import mytubeverse.composeapp.generated.resources.compose_multiplatform
 
 
 @Composable
-fun LoginScreen(viewModel: LoginViewModel) {
+fun LoginScreen(viewModel: LoginViewModel, onSaveToken: (String) -> Unit) {
 
     val credentials =
         GoogleAuthCredentials("1093375705839-na8i48n2katiemscig24e37et9c82h5k.apps.googleusercontent.com")
@@ -43,8 +43,9 @@ fun LoginScreen(viewModel: LoginViewModel) {
             googleAuthProvider,
             onGoogleSignInResult = { googleUser ->
                 val idToken = googleUser?.idToken // Send this idToken to your backend to verify
-                //signedInUser = googleUser
                 handleSuccessLogin(googleUser)
+                onSaveToken(idToken?:"")
+                viewModel.callSubscriptionApis(idToken!!)
             }) {
             Button(
                 onClick = { this.onClick() }
@@ -54,12 +55,10 @@ fun LoginScreen(viewModel: LoginViewModel) {
         }
 
     }
-
 }
 
 
 fun handleSuccessLogin(googleUser: GoogleUser?) {
     val displayName = googleUser?.displayName
     Log.i("Ansh", " user is $displayName and the token is ${googleUser?.idToken}")
-   // viewModel.saveUserToken(googleUser?.idToken)
 }
